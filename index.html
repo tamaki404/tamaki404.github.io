@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nicole - Portfolio</title>
+    <meta name="description" content="Nicole Tumpag – Jr. Full-Stack Web Developer portfolio.">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-o/3eeZlF1M+gSQQfFVzM9YBl6n3Tav1AmhU5Uah5ojI5IkfuQEqyzKNkk1rJZGL8eE6OY+y/jT9G7VUguVch/w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<main class="mainCon">
+    <section class="introSec" id="home">
+
+        <div class="logoNavbar">
+            <div class="logo">
+                <img src="assets/codeLogo.png" alt="Code Logo">
+                <h1>Portfolio</h1>
+            </div>
+
+            <div class="navbar">
+                <button onclick="scrollToSection('home')">Home</button>
+                <button onclick="scrollToSection('about')">About</button>
+                <button onclick="scrollToSection('techs')">Techs</button>
+                <button onclick="scrollToSection('portfolio')">Portfolio</button>
+                <button onclick="scrollToSection('contact')">Contact</button>
+            </div>
+
+            <!-- Hamburger for mobile -->
+            <button class="hamburger" onclick="toggleMobileNav()" aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars" id="hamburgerIcon"></i>
+            </button>
+
+            <script>
+                function scrollToSection(id) {
+                    const section = document.getElementById(id);
+                    if (section) {
+                        section.scrollIntoView({ behavior: 'smooth' });
+                    }
+                    // Close mobile nav on click
+                    const nav = document.getElementById('mobileNav');
+                    if (nav) nav.classList.remove('open');
+                    const icon = document.getElementById('hamburgerIcon');
+                    if (icon) { icon.classList.remove('fa-xmark'); icon.classList.add('fa-bars'); }
+                }
+
+                function toggleMobileNav() {
+                    const nav = document.getElementById('mobileNav');
+                    const icon = document.getElementById('hamburgerIcon');
+                    nav.classList.toggle('open');
+                    if (nav.classList.contains('open')) {
+                        icon.classList.remove('fa-bars'); icon.classList.add('fa-xmark');
+                    } else {
+                        icon.classList.remove('fa-xmark'); icon.classList.add('fa-bars');
+                    }
+                }
+            </script>
+        </div>
+
+        <!-- Mobile nav drawer -->
+        <div class="mobileNav" id="mobileNav">
+            <button onclick="scrollToSection('home')">Home</button>
+            <button onclick="scrollToSection('about')">About</button>
+            <button onclick="scrollToSection('techs')">Techs</button>
+            <button onclick="scrollToSection('portfolio')">Portfolio</button>
+            <button onclick="scrollToSection('contact')">Contact</button>
+        </div>
+
+        <div class="introCon">
+            <div class="introText">
+                <h2>Hello,</h2>
+                <h1>I'm Nicole</h1>
+                <p>I'm a Jr. Full-Stack Web Developer, passionate about learning, building intuitive user experiences, and contributing to meaningful projects.</p>
+                <a class="dowloadBtn" href="assets/Nicole_Tumpag_Minimalist_Developer_Resume.pdf" download>
+                    Download resume <i class="fa-solid fa-arrow-down downloadIcon"></i>
+                </a>
+            </div>
+
+            <div class="introImg">
+                <button class="emailMe" onclick="window.open('https://mail.google.com/mail/?view=cm&fs=1&to=nicole.tumpag.dev@gmail.com', '_blank')">Email me</button>
+                <img src="assets/togaPic_noBg.png" alt="Nicole in Toga" class="img1">
+                <img src="assets/filipinianaPic_noBg.png" alt="Nicole in Filipiniana" class="img2">
+            </div>
+
+            <div class="socials">
+                <button class="socialBtn" onclick="window.open('https://www.linkedin.com/in/your-username', '_blank')" title="LinkedIn">
+                    <img src="assets/linkedInLogo.png" alt="LinkedIn">
+                </button>
+                <button class="socialBtn" onclick="window.open('https://www.facebook.com/CarbolalaIs/', '_blank')" title="Facebook">
+                    <img src="assets/facebookLogo.jpg" alt="Facebook">
+                </button>
+                <button class="socialBtn" onclick="window.open('https://mail.google.com/mail/?view=cm&fs=1&to=nicole.tumpag.dev@gmail.com', '_blank')" title="Gmail">
+                    <img src="assets/gmailLogo.jpg" alt="Gmail">
+                </button>
+                <button class="socialBtn" onclick="window.open('https://www.instagram.com/tamtamaki404/', '_blank')" title="Instagram">
+                    <img src="assets/instagramLogo.jpg" alt="Instagram">
+                </button>
+                <!-- GitHub social button -->
+                <button class="socialBtn githubBtn" onclick="window.open('https://github.com/tamaki404', '_blank')" title="GitHub">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZfLuviePOqQJ1yuhvxr80AsqV91Btr2rqZw&s" alt="Github">
+                </button>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="myWorks" id="about">
+
+        <div class="logoNavbar">
+            <div class="logo">
+                <h1 style="color:#095ee5">/</h1>
+                <h1 style="font-size:18px">About me</h1>
+            </div>
+        </div>
+
+        <div class="works">
+            <div class="leftWork" id="leftWork">
+                <h1>I've worked on diverse projects — </h1>
+                <p>from building a cross-platform AI chat app using React Native and OpenAI, to leading the development of an e-commerce website and a teacher-parent monitoring system.</p>
+            </div>
+            <div class="rightWork" id="rightWork">
+                <h1>Let's build something great together!</h1>
+                <p>I'm detail-oriented, organized, and love solving problems. Whether it's optimizing code, fixing bugs, or designing clean UI, I thrive in collaborative environments where I can keep learning and building meaningful tech.</p>
+            </div>
+        </div>
+
+        <script>
+            const quotes = [
+                {
+                    left: { h1: "I've worked on diverse projects —", p: "from building a cross-platform AI chat app using React Native and OpenAI, to leading the development of an e-commerce website and a teacher-parent monitoring system." },
+                    right: { h1: "Let's build something great together!", p: "I'm detail-oriented, organized, and love solving problems. Whether it's optimizing code, fixing bugs, or designing clean UI, I thrive in collaborative environments where I can keep learning and building meaningful tech." }
+                },
+                {
+                    left: { h1: "I turn ideas into usable software.", p: "From chat apps to complex systems, I enjoy transforming project goals into fully functional apps with clean, reliable code and modern design principles." },
+                    right: { h1: "Code with purpose, design with clarity.", p: "My goal is to craft software that not only works—but works beautifully. I'm always up for new challenges that help me grow while building tech that matters." }
+                }
+            ];
+            let index = 0;
+            function switchQuotes() {
+                const left = document.getElementById("leftWork");
+                const right = document.getElementById("rightWork");
+                left.classList.add("fade-out");
+                right.classList.add("fade-out");
+                setTimeout(() => {
+                    const quoteSet = quotes[index];
+                    left.innerHTML = `<h1>${quoteSet.left.h1}</h1><p>${quoteSet.left.p}</p>`;
+                    right.innerHTML = `<h1>${quoteSet.right.h1}</h1><p>${quoteSet.right.p}</p>`;
+                    left.classList.remove("fade-out");
+                    right.classList.remove("fade-out");
+                    left.classList.add("fade-in");
+                    right.classList.add("fade-in");
+                    index = (index + 1) % quotes.length;
+                }, 1000);
+            }
+            setInterval(switchQuotes, 4000);
+        </script>
+
+    </section>
+
+    <section class="techStacksSec" id="techs">
+
+        <div class="logoNavbar">
+            <div class="logo">
+                <h1 style="color:#095ee5">/</h1>
+                <h1 style="font-size:18px">Tech Stacks</h1>
+            </div>
+        </div>
+
+        <div class="techStacks">
+            <!-- Frontend -->
+            <h2>HTML</h2>
+            <h2>CSS</h2>
+            <h2>JavaScript</h2>
+            <h2>React.js</h2>
+            <h2>Tailwind</h2>
+            <h2>Bootstrap</h2>
+            <!-- Backend -->
+            <h2>PHP</h2>
+            <h2>Laravel</h2>
+            <h2>Node.js</h2>
+            <h2>Express</h2>
+            <!-- Databases -->
+            <h2>MySQL</h2>
+            <h2>MongoDB</h2>
+            <h2>Firebase Firestore</h2>
+            <!-- Mobile & Tools -->
+            <h2>React Native</h2>
+            <h2>Expo Go</h2>
+            <h2>Android Studio</h2>
+            <h2>Electron</h2>
+            <h2>XAMPP</h2>
+            <!-- DevOps -->
+            <h2>Git</h2>
+            <h2>GitHub</h2>
+            <h2>OpenAI API</h2>
+        </div>
+
+    </section>
+
+    <section class="portfolio" id="portfolio">
+
+        <div class="logoNavbar">
+            <div class="logo">
+                <h1 style="color:#095ee5">/</h1>
+                <h1 style="font-size:18px">Portfolio</h1>
+            </div>
+            <a class="githubProfileLink" href="https://github.com/tamaki404" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-github"></i> View all on GitHub
+            </a>
+        </div>
+
+        <h2>Check out some of my recent projects</h2>
+
+        <div class="portCon">
+
+            <!-- Project 1: Leyrus AI Chat App -->
+            <div class="portBox">
+                <img src="assets/phone.png" class="backgroundImage" alt="Leyrus AI Chat App" />
+                <div class="upperBoxpart">
+                    <p style="font-weight: bold">2025</p>
+                    <p>Android, iOS</p>
+                </div>
+                <div class="lowerBoxpart">
+                    <h2>AI Chat App – Leyrus</h2>
+                    <p>React Native, Expo Go, OpenAI API, AdMob, Android Studio, Xcode</p>
+                    <div class="portLinks">
+                        <a href="https://github.com/tamaki404" target="_blank" rel="noopener noreferrer" class="portLink">
+                            <i class="fa-brands fa-github"></i> GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2: TODD -->
+            <div class="portBox">
+                <img src="assets/toddHomepage.png" class="backgroundImage" alt="TODD Monitoring System" />
+                <div class="upperBoxpart">
+                    <p style="font-weight: bold">2025</p>
+                    <p>Windows Desktop</p>
+                </div>
+                <div class="lowerBoxpart">
+                    <h2>TODD: Teacher-Parent Monitoring System</h2>
+                    <p>Node.js, Express.js, MongoDB, Electron, HTML, CSS</p>
+                    <div class="portLinks">
+                        <a href="https://github.com/tamaki404/TODD-Desktop" target="_blank" rel="noopener noreferrer" class="portLink">
+                            <i class="fa-brands fa-github"></i> Desktop
+                        </a>
+                        <a href="https://github.com/tamaki404/ToddWebsitSC" target="_blank" rel="noopener noreferrer" class="portLink">
+                            <i class="fa-brands fa-github"></i> Website
+                        </a>
+                        <a href="https://github.com/tamaki404/toddDownloadingSite" target="_blank" rel="noopener noreferrer" class="portLink">
+                            <i class="fa-brands fa-github"></i> Download Site
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3: Pinoy Pride Marketplace -->
+            <div class="portBox">
+                <img src="assets/craftedHeritage.jpeg" class="backgroundImage" alt="Pinoy Pride Marketplace" />
+                <div class="upperBoxpart">
+                    <p style="font-weight: bold">2024</p>
+                    <p>Web</p>
+                </div>
+                <div class="lowerBoxpart">
+                    <h2>Pinoy Pride Marketplace</h2>
+                    <p>HTML, CSS, PHP, MySQL, XAMPP</p>
+                    <div class="portLinks">
+                        <a href="https://github.com/tamaki404" target="_blank" rel="noopener noreferrer" class="portLink">
+                            <i class="fa-brands fa-github"></i> GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 4: Full-Stack Ordering System (from resume) -->
+            <div class="portBox portBoxNew">
+                <div class="upperBoxpart">
+                    <p style="font-weight: bold">2025</p>
+                    <p>Web</p>
+                </div>
+                <div class="lowerBoxpart">
+                    <h2>Full-Stack Ordering & Management System</h2>
+                    <p>PHP, Laravel, MySQL, Bootstrap, RBAC, RESTful APIs</p>
+                    <div class="portLinks">
+                        <a href="https://github.com/tamaki404" target="_blank" rel="noopener noreferrer" class="portLink">
+                            <i class="fa-brands fa-github"></i> GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 5: Informational Brand Website (from resume) -->
+            <div class="portBox portBoxNew">
+                <div class="upperBoxpart">
+                    <p style="font-weight: bold">2026</p>
+                    <p>Web</p>
+                </div>
+                <div class="lowerBoxpart">
+                    <h2>Informational Brand Website</h2>
+                    <p>CSS Animations, AI Integration, Google Maps API, Formspree</p>
+                    <div class="portLinks">
+                        <a href="https://github.com/tamaki404" target="_blank" rel="noopener noreferrer" class="portLink">
+                            <i class="fa-brands fa-github"></i> GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="contact" id="contact">
+
+        <div class="logoNavbar">
+            <div class="logo">
+                <h1 style="color:#095ee5">/</h1>
+                <h1 style="font-size:18px">Contact me</h1>
+            </div>
+        </div>
+
+        <button class="footerUpBtn" onclick="scrollToSection('home')"><i class="fa-solid fa-chevron-up"></i></button>
+
+        <div class="contactCon">
+            <div class="leftCon">
+                <h2>If you have any questions, please don't hesitate to contact me</h2>
+                <div class="nicoleDeets">
+                    <img src="assets/nicole-Bg.jpg" class="nicoleImg" alt="Nicole Tumpag">
+                    <div class="details">
+                        <h1>Nicole Tumpag</h1>
+                        <h2>Full-Stack Web Developer</h2>
+                        <div class="endIcon">
+                            <a href="https://www.linkedin.com/in/your-username" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/linkedInLogo.png" alt="LinkedIn">
+                            </a>
+                            <a href="https://www.facebook.com/CarbolalaIs/" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/facebookLogo.jpg" alt="Facebook">
+                            </a>
+                            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=nicole.tumpagdev@gmail.com" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/gmailLogo.jpg" alt="Gmail">
+                            </a>
+                            <a href="https://www.instagram.com/tamtamaki404/" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/instagramLogo.jpg" alt="Instagram">
+                            </a>
+                            <a href="https://github.com/tamaki404" target="_blank" rel="noopener noreferrer" class="githubIconLink">
+
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZfLuviePOqQJ1yuhvxr80AsqV91Btr2rqZw&s" alt="Github">
+
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="rightCon">
+                <div class="contactBox">
+                    <h1>Get in touch</h1>
+                    <p>nicole.tumpagdev@gmail.com</p>
+                    <p>+639125758529</p>
+                    <p style="color: #fff; font-weight: bold; margin-top: 10px;">Montalban, Rizal, Philippines</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="navFooter">
+            <button onclick="scrollToSection('home')">Home</button>
+            <button onclick="scrollToSection('about')">About</button>
+            <button onclick="scrollToSection('techs')">Techs</button>
+            <button onclick="scrollToSection('portfolio')">Portfolio</button>
+            <button onclick="scrollToSection('contact')">Contact</button>
+        </div>
+
+    </section>
+
+</main>
+
+</body>
+</html>
