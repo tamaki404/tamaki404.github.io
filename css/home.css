@@ -1,0 +1,1015 @@
+/* =============================================
+   BASE
+   ============================================= */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #252b37;
+  margin: 0;
+  min-height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  overflow-y: auto;
+  font-family: "Bricolage Grotesque", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* =============================================
+   MAIN CONTAINER
+   ============================================= */
+.mainCon {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 25px;
+}
+
+/* =============================================
+   SHARED SECTION BASE
+   ============================================= */
+.introSec,
+.myWorks,
+.techStacksSec,
+.portfolio,
+.contact {
+  padding: 20px;
+  border-radius: 25px;
+  width: 100%;
+  height: auto;
+  overflow: visible; /* FIX: was hidden, clipping content */
+  position: relative;
+}
+
+/* =============================================
+   INTRO / HERO SECTION
+   ============================================= */
+.introSec {
+  background: linear-gradient(90deg, rgba(0,0,0,0.8), rgba(53,51,205,0.8)),
+              url('../assets/bgFcol.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0 -20px 10px -20px rgba(0,0,0,0.45) inset;
+  min-height: 600px;
+  z-index: 1;
+}
+
+/* Logo + Navbar row */
+.logoNavbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 60px;
+  padding: 10px;
+  position: relative;
+  z-index: 2;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.logoNavbar .logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  height: 40px;
+  width: auto;
+}
+
+.logo h1 {
+  color: #fff;
+  font-size: 24px;
+  margin-left: 10px;
+}
+
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.logoNavbar button {
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: background-color 0.3s ease;
+  opacity: 0.6;
+}
+
+.logoNavbar button:hover {
+  text-decoration: underline 1.5px solid #fff;
+  text-underline-offset: 4px;
+  opacity: 1;
+}
+
+/* Intro content row */
+.introCon {
+    width: 100%;
+    display: grid;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    /* padding: 20px 0; */
+    /* grid-auto-columns: 1fr 1fr; */
+    grid-template-columns: repeat(3, 1fr);
+}
+
+/* Text block */
+.introText {
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  align-items: flex-start;
+  justify-content: center;
+  z-index: 4;
+  margin-left: 30px;
+}
+
+.introText h1 {
+  text-align: left;
+  margin: 0;
+  font-size: clamp(38px, 6vw, 65px);
+  font-weight: 800;
+  line-height: 0.85;
+  font-family: "Bricolage Grotesque", sans-serif;
+  color: #095ee5;
+}
+
+.introText h2 {
+  margin: 0;
+  font-size: clamp(20px, 3vw, 30px);
+  font-weight: 700;
+  font-family: "Arimo", sans-serif;
+  color: #fff;
+}
+
+.introText p {
+  font-size: clamp(15px, 1.8vw, 18px);
+  line-height: 1.4;
+  margin-top: 12px;
+  font-style: italic;
+  font-family: "Arimo", sans-serif;
+  color: #fff;
+  max-width: 380px;
+}
+
+.introText a {
+  width: 230px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  height: auto;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  font-weight: bold;
+  font-size: 13.7px;
+  font-family: "Arimo", sans-serif;
+  border: none;
+  box-shadow: 0 -20px 10px -20px rgba(0,0,0,0.45) inset;
+  background: linear-gradient(90deg, rgba(0,0,0,0.8), rgba(53,51,205,0.8)),
+              url('../assets/bgFcol.jpg');
+  color: #fff;
+  cursor: pointer;
+  gap: 10px;
+  transition: filter 0.3s ease;
+  position: relative;
+  z-index: 1;
+  text-decoration: none;
+  margin-top: 16px;
+}
+
+.introText a:hover {
+  animation: moveShadow 0.6s ease-in-out forwards;
+  filter: brightness(1.1);
+}
+
+.introText a .downloadIcon {
+  color: #fff;
+  font-size: 14px;
+}
+
+/* Hero images */
+.introImg {
+  position: relative;
+  width: 340px;
+  height: 500px;
+  flex-shrink: 0;
+}
+
+.introImg img {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  height: 100%;
+  width: auto;
+  transition: z-index 0.3s ease, transform 0.3s ease;
+}
+
+.introImg .img1 {
+  z-index: 2;
+}
+
+.introImg .img2 {
+  left: 120px;
+  z-index: 1;
+}
+
+.introImg:hover .img2 {
+  z-index: 3;
+}
+
+.emailMe {
+  background-color: #fff;
+  z-index: 10;
+  padding: 8px 12px;
+  color: #252b37;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 -20px 10px -20px rgba(0,0,0,0.45) inset;
+  position: absolute;
+  bottom: 120px;
+  left: 130px;
+  font-size: 12.3px;
+  font-weight: bold;
+  width: 100px;
+  cursor: pointer;
+}
+
+/* Socials column */
+.socials {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  margin-left: auto;
+}
+
+.socials button {
+  width: 50px;
+  height: 50px;
+  background-color: pink;
+  border-radius: 50%;
+  overflow: hidden;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  opacity: 0.6;
+  box-shadow: 0 -20px 10px -20px rgba(0,0,0,0.45) inset;
+  flex-shrink: 0;
+}
+
+.socials button:hover {
+  opacity: 1;
+  transform: scale(1.1) translateY(-3px);
+  box-shadow: 0 0 10px rgba(0,0,0,0.3), 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.socialBtn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.socialBtn.githubBtn {
+  background-color: #1a1a2e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.socialBtn.githubBtn i {
+  font-size: 26px;
+  color: #fff;
+}
+
+/* =============================================
+   HOVER SHADOW ANIMATION
+   ============================================= */
+@keyframes moveShadow {
+  0%   { box-shadow: 0 0 10px rgba(53,51,205,0.6), 0 0 20px rgba(53,51,205,0.4); }
+  50%  { box-shadow: 5px 5px 15px rgba(53,51,205,0.6), -5px -5px 20px rgba(53,51,205,0.4); }
+  100% { box-shadow: 0 0 10px rgba(53,51,205,0.6), 0 0 20px rgba(53,51,205,0.4); }
+}
+
+/* =============================================
+   ABOUT SECTION
+   ============================================= */
+.myWorks {
+  min-height: 500px;
+}
+
+.works {
+  display: flex;
+  gap: 40px;
+  justify-content: space-between;
+  padding: 60px 40px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.leftWork, .rightWork {
+  flex: 1;
+  min-width: 260px;
+  transition: opacity 1s ease;
+  opacity: 1;
+}
+
+.leftWork h1, .rightWork h1 {
+  font-size: clamp(32px, 4.5vw, 57px);
+  font-weight: 700;
+  color: #095ee5;
+  margin: 0;
+  line-height: 1;
+}
+
+.leftWork p, .rightWork p {
+  font-size: clamp(16px, 2vw, 25px);
+  line-height: 1.4;
+  margin-top: 12px;
+  font-style: italic;
+  color: #fff;
+}
+
+.fade-out { opacity: 0; }
+.fade-in  { opacity: 1; }
+
+/* =============================================
+   TECH STACKS SECTION
+   ============================================= */
+.techStacksSec {
+  min-height: 400px;
+}
+
+.techStacks {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  padding: 30px 0;
+}
+
+.techStacks h2 {
+  margin: 8px;
+  font-size: clamp(22px, 3.5vw, 45px);
+  font-weight: bold;
+  white-space: nowrap;
+  background: linear-gradient(120deg, #d7d7d7 0%, #8e9eab 20%, #e8e8e8 40%, #b0bec5 60%, #90a4ae 80%, #d7d7d7 100%);
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: titaniumSheen 4s linear infinite;
+}
+
+@keyframes titaniumSheen {
+  0%   { background-position: 200% center; }
+  100% { background-position: -200% center; }
+}
+
+/* =============================================
+   PORTFOLIO SECTION
+   ============================================= */
+.portfolio {
+  min-height: 500px;
+}
+
+.portfolio > h2 {
+  color: #fff;
+  font-size: 21px;
+  font-family: "Bricolage Grotesque", sans-serif;
+  margin-left: 20px;
+  margin-top: 8px;
+}
+
+/* GitHub profile link in section header */
+.githubProfileLink {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  font-family: "Arimo", sans-serif;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+  margin-right: 10px;
+}
+
+.githubProfileLink:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+.githubProfileLink i {
+  font-size: 18px;
+}
+
+/* Cards grid */
+.portCon {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  flex-wrap: wrap;          /* FIX: allows wrapping to new rows */
+  justify-content: center;
+  align-items: stretch;     /* same height per row */
+  padding: 20px 0 10px;
+  overflow: visible;        /* FIX: was hidden, cards were clipped */
+}
+
+.portBox {
+  position: relative;
+  overflow: hidden;
+  width: 340px;
+  min-height: 380px;
+  height: auto;             /* FIX: allow card to grow with content */
+  border-radius: 20px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 -20px 10px -20px rgba(0,0,0,0.45) inset;
+  background: linear-gradient(90deg, rgba(0,0,0,0.8), rgba(53,51,205,0.8));
+  flex-shrink: 0;
+}
+
+.portBox .backgroundImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 0.25;
+}
+
+.portBox > .upperBoxpart,
+.portBox > .lowerBoxpart {
+  position: relative;
+  z-index: 1;
+}
+
+.portBox:hover {
+  animation: moveShadow 0.6s ease-in-out forwards;
+  filter: brightness(1.1);
+  z-index: 5;
+}
+
+.portBoxNew {
+  background: linear-gradient(135deg, rgba(9,94,229,0.15), rgba(53,51,205,0.4));
+  border: 1px solid rgba(9,94,229,0.3);
+}
+
+.upperBoxpart {
+  justify-content: space-between;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 8px;
+}
+
+.upperBoxpart p {
+  font-size: 15px;
+  color: white;
+  margin: 0;
+}
+
+.lowerBoxpart {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+}
+
+.lowerBoxpart h2 {
+  margin: 0;
+  font-size: 22px;
+  width: 100%;
+}
+
+.lowerBoxpart p {
+  margin: 0;
+  margin-top: 6px;
+  font-size: 14px;
+  width: 100%;
+  color: rgba(255,255,255,0.75);
+}
+
+/* GitHub links inside cards */
+.portLinks {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+.portLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background-color: rgba(255,255,255,0.1);
+  color: #fff;
+  text-decoration: none;
+  font-size: 12px;
+  font-family: "Arimo", sans-serif;
+  padding: 5px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  backdrop-filter: blur(4px);
+}
+
+.portLink:hover {
+  background-color: rgba(9,94,229,0.4);
+  border-color: #095ee5;
+  transform: translateY(-2px);
+}
+
+.portLink i {
+  font-size: 13px;
+}
+
+/* =============================================
+   CONTACT SECTION
+   ============================================= */
+.contact {
+  min-height: 600px;
+}
+
+.footerUpBtn {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 10px;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.footerUpBtn i {
+  font-size: 30px;
+  color: #095ee5;
+}
+
+.footerUpBtn:hover {
+  animation: jump 0.4s ease;
+}
+
+@keyframes jump {
+  0%   { transform: translateY(0); }
+  30%  { transform: translateY(-10px); }
+  60%  { transform: translateY(0); }
+  80%  { transform: translateY(-4px); }
+  100% { transform: translateY(0); }
+}
+
+.contactCon {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+  background-color: transparent;
+  padding: 20px 0;
+}
+
+.contactCon .leftCon {
+  flex: 1;
+  min-width: 260px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background-color: transparent;
+  justify-content: center;
+  align-items: center;
+}
+
+.leftCon h2 {
+  color: #fff;
+  font-size: clamp(24px, 3.5vw, 40px);
+  margin: 0;
+  width: 80%;
+  font-family: "Bricolage Grotesque", sans-serif;
+  line-height: 1.2;
+}
+
+.nicoleDeets {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  background-color: transparent;
+  justify-content: center;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.nicoleImg {
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.leftCon .details {
+  background-color: transparent;
+  min-height: 120px;
+  max-width: 260px;
+  align-items: flex-start;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.details h1 {
+  margin: 0;
+  font-size: 26px;
+  color: #fff;
+  line-height: 1.1;
+}
+
+.details h2 {
+  margin: 0;
+  font-size: 18px;
+  color: #095ee5;
+  font-weight: normal;
+}
+
+.endIcon {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.endIcon a {
+  border-radius: 50%;
+  width: 31px;
+  height: 31px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+a img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.githubIconLink {
+  border-radius: 50%;
+  width: 31px;
+  height: 31px;
+  background-color: #1a1a2e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.githubIconLink i {
+  color: #fff;
+  font-size: 17px;
+}
+
+.contactCon .rightCon {
+  flex: 1;
+  min-width: 260px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rightCon .contactBox {
+  width: 100%;
+  max-width: 320px;
+  min-height: 220px;
+  border-radius: 20px;
+  box-shadow: 0 -20px 10px -20px rgba(0,0,0,0.45) inset;
+  background: linear-gradient(90deg, rgba(0,0,0,0.8), rgba(53,51,205,0.8)),
+              url('../assets/bgFcol.jpg');
+  background-size: cover;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.contactBox h1 {
+  color: #fff;
+  font-size: clamp(32px, 4vw, 48px);
+  font-family: "Bricolage Grotesque", sans-serif;
+  margin: 0 0 8px;
+}
+
+.contactBox p {
+  color: #095ee5;
+  font-size: 15px;
+  margin: 0;
+}
+
+/* =============================================
+   FOOTER NAV
+   ============================================= */
+.navFooter {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  min-height: 80px;
+  width: 100%;
+  background-color: #252b37;
+  gap: 4px;
+  padding: 20px 0;
+}
+
+.navFooter button {
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 15px;
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+}
+
+.navFooter button:hover {
+  color: #fff;
+  opacity: 1;
+}
+
+/* =============================================
+   RESPONSIVE — TABLET (max 900px)
+   ============================================= */
+@media (max-width: 900px) {
+  .mainCon {
+    padding: 15px;
+    gap: 16px;
+  }
+
+  .introSec,
+  .myWorks,
+  .techStacksSec,
+  .portfolio,
+  .contact {
+    width: 100%;
+    border-radius: 18px;
+    padding: 16px;
+  }
+
+  /* Stack hero vertically */
+  .introCon {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding: 10px 0;
+  }
+
+  .introText {
+    width: 100%;
+    margin-left: 0;
+    align-items: flex-start;
+    padding: 10px;
+  }
+
+  /* Hide the decorative second photo on tablet/mobile — it overflows */
+  .introImg .img2,
+  .emailMe {
+    display: none;
+  }
+
+  .introImg {
+    width: 200px;
+    height: 300px;
+  }
+
+  .introImg .img1 {
+    position: relative;
+    height: 100%;
+    width: auto;
+  }
+
+  /* Socials go horizontal on tablet */
+  .socials {
+    flex-direction: row;
+    width: 100%;
+    justify-content: flex-start;
+    margin-left: 10px;
+    flex-wrap: wrap;
+  }
+
+  .navbar {
+    display: none; /* replaced by hamburger below */
+  }
+
+  /* About section */
+  .works {
+    flex-direction: column;
+    padding: 30px 20px;
+    gap: 24px;
+  }
+
+  .leftWork, .rightWork {
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  /* Portfolio cards: 2 per row on tablet */
+  .portBox {
+    width: calc(50% - 12px);
+  }
+
+  /* Contact */
+  .contactCon {
+    flex-direction: column;
+  }
+
+  .contactCon .leftCon,
+  .contactCon .rightCon {
+    width: 100%;
+  }
+}
+
+/* =============================================
+   RESPONSIVE — MOBILE (max 600px)
+   ============================================= */
+@media (max-width: 600px) {
+  .mainCon {
+    padding: 10px;
+    gap: 12px;
+  }
+
+  .introSec,
+  .myWorks,
+  .techStacksSec,
+  .portfolio,
+  .contact {
+    border-radius: 14px;
+    padding: 14px;
+  }
+
+  .logoNavbar {
+    height: auto;
+    flex-wrap: wrap;
+    padding: 8px;
+  }
+
+  .logo h1 {
+    font-size: 18px;
+  }
+
+  /* Portfolio cards: full width on mobile */
+  .portBox {
+    width: 100%;
+    min-height: auto;
+  }
+
+  .portCon {
+    gap: 12px;
+  }
+
+  .techStacks h2 {
+    font-size: clamp(18px, 5vw, 28px);
+  }
+
+  .leftCon h2 {
+    width: 100%;
+    font-size: 22px;
+  }
+
+  .nicoleDeets {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .leftCon .details {
+    align-items: center;
+  }
+
+  .endIcon {
+    justify-content: center;
+  }
+
+  .rightCon .contactBox {
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .navFooter {
+    gap: 2px;
+  }
+
+  .navFooter button {
+    font-size: 13px;
+    padding: 6px 10px;
+  }
+
+  /* Socials row on mobile */
+  .socials {
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    margin-left: 0;
+  }
+
+  .socials button {
+    width: 42px;
+    height: 42px;
+  }
+}
+
+/* =============================================
+   HAMBURGER MENU (mobile nav)
+   ============================================= */
+.hamburger {
+  display: none;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 4px 8px;
+  opacity: 0.8;
+}
+
+.mobileNav {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+  padding: 8px 0;
+}
+
+.mobileNav button {
+  background: rgba(255,255,255,0.07);
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  text-align: left;
+  opacity: 0.85;
+  width: 100%;
+}
+
+.mobileNav button:hover {
+  background: rgba(9,94,229,0.3);
+  opacity: 1;
+}
+
+.mobileNav.open {
+  display: flex;
+}
+
+@media (max-width: 900px) {
+  .hamburger {
+    display: block;
+  }
+}
